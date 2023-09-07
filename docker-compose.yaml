@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+    tls-check:
+        build:
+            context: ./tls-check
+        ports:
+            - 5555:5555
+    caddy:
+        build:
+            context: ./caddy
+        restart: unless-stopped
+        ports:
+            - 80:80
+            - 443:443
+            - 443:443/udp
+        volumes:
+            - caddy_data:/data
+            - caddy_config:/config
+
+volumes:
+    caddy_data:
+    caddy_config:
