@@ -13,7 +13,7 @@ https:// {
 		on_demand
 	}
 
-	reverse_proxy web-service.caddy.svc.cluster.local:80 {
+	reverse_proxy web-service {
 		header_down Strict-Transport-Security max-age=31536000;
 	}
 }
