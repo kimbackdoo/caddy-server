@@ -5,7 +5,6 @@
 		interval 2m
 		burst 5
 	}
-
 }
 
 https:// {
@@ -16,4 +15,8 @@ https:// {
 	reverse_proxy web-service {
 		header_down Strict-Transport-Security max-age=31536000;
 	}
+}
+
+http:// {
+	respond /health-check 200
 }
